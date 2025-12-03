@@ -24,7 +24,7 @@ function curlFetch(url, options = {}) {
   const { method = 'GET', data } = options;
 
   let cmd = [
-    'curl', '-s', '-L',
+    'curl', '-s', '-L', '-f',
     '-c', COOKIE_FILE,
     '-b', COOKIE_FILE,
     '-H', '"User-Agent: Mozilla/5.0"'
@@ -44,6 +44,10 @@ function curlFetch(url, options = {}) {
     shell: true,
     maxBuffer: 10 * 1024 * 1024
   });
+
+  if (!result || result.length < 100) {
+    throw new Error(`Empty or invalid response from ${url}`);
+  }
 
   return result;
 }
@@ -88,11 +92,20 @@ function fetchAllRankings() {
 
   console.log('Fetching rankings...');
   const rankings = {};
+  const errors = [];
 
   for (const name of Object.keys(CATEGORIES)) {
     const rank = fetchCategoryRanking(name);
-    rankings[name] = rank;
-    console.log(`  ${name}: ${rank !== null ? `#${rank}` : 'not found'}`);
+    if (rank === null) {
+      errors.push(`Failed to fetch ${name} ranking - player not found in results`);
+    } else {
+      rankings[name] = rank;
+      console.log(`  ${name}: #${rank}`);
+    }
+  }
+
+  if (errors.length > 0) {
+    throw new Error(`Ranking fetch failed:\n  ${errors.join('\n  ')}`);
   }
 
   return rankings;
@@ -119,10 +132,20 @@ function updateProfile(rankings) {
   }
 }
 
+const jsonOutput = process.argv.includes('--json');
+
 try {
   const rankings = fetchAllRankings();
   updateProfile(rankings);
+
+  if (jsonOutput) {
+    console.log(JSON.stringify({ success: true, rankings }, null, 2));
+  }
 } catch (error) {
-  console.error('Error fetching rankings:', error);
+  if (jsonOutput) {
+    console.log(JSON.stringify({ success: false, error: error.message }, null, 2));
+  } else {
+    console.error('Error fetching rankings:', error.message);
+  }
   process.exit(1);
 }
