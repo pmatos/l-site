@@ -1,0 +1,62 @@
+---
+import Layout from '../components/Layout.astro';
+import profile from '../data/profile.json';
+
+const yearsPlaying = new Date().getFullYear() - profile.startedPlaying;
+---
+
+<Layout title="About" description={`Learn more about ${profile.fullName}, ${profile.tagline.toLowerCase()}`}>
+  <div class="page-header">
+    <h1 class="page-title animate-fade-in-up">About</h1>
+    <p class="page-subtitle animate-fade-in-up delay-100">The journey so far</p>
+  </div>
+
+  <section class="about-content">
+    <div class="about-image animate-fade-in">
+      {profile.photo ? (
+        <img src={profile.photo} alt={profile.fullName} />
+      ) : (
+        <div class="hero-image-placeholder" style="height: 100%;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 48px; height: 48px; opacity: 0.3;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </div>
+      )}
+    </div>
+
+    <div class="about-text">
+      <div class="animate-fade-in-up delay-100">
+        <h2>{profile.fullName}</h2>
+        <p>{profile.bio}</p>
+      </div>
+
+      <div class="animate-fade-in-up delay-200">
+        <h2>Quick Facts</h2>
+        <p>
+          <strong>Club:</strong> {profile.club}<br>
+          <strong>Playing since:</strong> {profile.startedPlaying} ({yearsPlaying} years)
+        </p>
+      </div>
+
+      {profile.achievements.length > 0 && (
+        <div class="animate-fade-in-up delay-300">
+          <h2>Achievements</h2>
+          <ul class="achievements-list">
+            {profile.achievements.map((achievement) => (
+              <li>{achievement}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div class="animate-fade-in-up delay-400">
+        <h2>Current Rankings</h2>
+        <p>
+          <strong>Singles:</strong> #{profile.rankings.singles}<br>
+          <strong>Doubles:</strong> #{profile.rankings.doubles}<br>
+          <strong>Mixed:</strong> #{profile.rankings.mixed}
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

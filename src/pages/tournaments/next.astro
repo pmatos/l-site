@@ -1,0 +1,66 @@
+---
+import Layout from '../../components/Layout.astro';
+import tournaments from '../../data/tournaments.json';
+import profile from '../../data/profile.json';
+
+const upcomingTournaments = tournaments.upcoming.sort((a, b) =>
+  new Date(a.date).getTime() - new Date(b.date).getTime()
+);
+
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr);
+  return {
+    day: date.getDate(),
+    month: date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase(),
+    year: date.getFullYear()
+  };
+}
+
+function capitalizeFirst(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+---
+
+<Layout title="Upcoming Tournaments" description={`${profile.name}'s upcoming tournament schedule`}>
+  <div class="page-header">
+    <h1 class="page-title animate-fade-in-up">Upcoming</h1>
+    <p class="page-subtitle animate-fade-in-up delay-100">Tournament schedule</p>
+  </div>
+
+  <section class="tournaments-grid">
+    {upcomingTournaments.length === 0 ? (
+      <p style="text-align: center; color: var(--color-text-muted);">No upcoming tournaments scheduled.</p>
+    ) : (
+      upcomingTournaments.map((tournament, index) => {
+        const date = formatDate(tournament.date);
+
+        return (
+          <article class={`tournament-card animate-fade-in-up delay-${(index % 5) * 100}`}>
+            <div class="tournament-date">
+              <div class="tournament-date-day">{date.day}</div>
+              <div class="tournament-date-month">{date.month} {date.year}</div>
+            </div>
+
+            <div class="tournament-info">
+              <h3>{tournament.name}</h3>
+              <p class="tournament-location">{tournament.location}</p>
+              <span class="tournament-category">{tournament.category}</span>
+
+              {tournament.registeredFor && tournament.registeredFor.length > 0 && (
+                <div class="upcoming-events" style="margin-top: 12px;">
+                  {tournament.registeredFor.map((event) => (
+                    <span class="event-badge">{capitalizeFirst(event)}</span>
+                  ))}
+                </div>
+              )}
+
+              {tournament.notes && (
+                <p class="tournament-notes">{tournament.notes}</p>
+              )}
+            </div>
+          </article>
+        );
+      })
+    )}
+  </section>
+</Layout>

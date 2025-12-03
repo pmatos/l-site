@@ -1,0 +1,83 @@
+---
+import Layout from '../../components/Layout.astro';
+import tournaments from '../../data/tournaments.json';
+import profile from '../../data/profile.json';
+
+const pastTournaments = tournaments.past.sort((a, b) =>
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr);
+  return {
+    day: date.getDate(),
+    month: date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase(),
+    year: date.getFullYear()
+  };
+}
+
+function getPlaceClass(place: number): string {
+  if (place === 1) return 'gold';
+  if (place === 2) return 'silver';
+  if (place === 3) return 'bronze';
+  return '';
+}
+
+function getOrdinal(n: number): string {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+---
+
+<Layout title="Past Tournaments" description={`${profile.name}'s tournament history and results`}>
+  <div class="page-header">
+    <h1 class="page-title animate-fade-in-up">Past Tournaments</h1>
+    <p class="page-subtitle animate-fade-in-up delay-100">Results and achievements</p>
+  </div>
+
+  <section class="tournaments-grid">
+    {pastTournaments.length === 0 ? (
+      <p style="text-align: center; color: var(--color-text-muted);">No past tournaments yet.</p>
+    ) : (
+      pastTournaments.map((tournament, index) => {
+        const date = formatDate(tournament.date);
+        const results = [];
+
+        if (tournament.results.singles) {
+          results.push({ type: 'Singles', ...tournament.results.singles });
+        }
+        if (tournament.results.doubles) {
+          results.push({ type: 'Doubles', ...tournament.results.doubles });
+        }
+        if (tournament.results.mixed) {
+          results.push({ type: 'Mixed', ...tournament.results.mixed });
+        }
+
+        return (
+          <article class={`tournament-card animate-fade-in-up delay-${(index % 5) * 100}`}>
+            <div class="tournament-date">
+              <div class="tournament-date-day">{date.day}</div>
+              <div class="tournament-date-month">{date.month} {date.year}</div>
+            </div>
+
+            <div class="tournament-info">
+              <h3>{tournament.name}</h3>
+              <p class="tournament-location">{tournament.location}</p>
+              <span class="tournament-category">{tournament.category}</span>
+            </div>
+
+            <div class="tournament-results">
+              {results.map((result) => (
+                <div class={`result-badge ${getPlaceClass(result.place)}`}>
+                  <span class="result-place">{getOrdinal(result.place)}</span>
+                  <span class="result-type">{result.type}</span>
+                </div>
+              ))}
+            </div>
+          </article>
+        );
+      })
+    )}
+  </section>
+</Layout>

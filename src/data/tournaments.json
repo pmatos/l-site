@@ -1,0 +1,63 @@
+{
+  "past": [
+    {
+      "name": "Regional Youth Championship",
+      "date": "2024-11-15",
+      "location": "Munich, Germany",
+      "category": "U15",
+      "results": {
+        "singles": { "place": 1, "notes": "Gold Medal" },
+        "doubles": { "place": 2, "partner": "Partner Name" },
+        "mixed": null
+      }
+    },
+    {
+      "name": "National Junior Open",
+      "date": "2024-10-20",
+      "location": "Berlin, Germany",
+      "category": "U15",
+      "results": {
+        "singles": { "place": 3, "notes": "Bronze Medal" },
+        "doubles": null,
+        "mixed": { "place": 1, "partner": "Partner Name", "notes": "Gold Medal" }
+      }
+    },
+    {
+      "name": "City Tournament",
+      "date": "2024-09-05",
+      "location": "Munich, Germany",
+      "category": "Open",
+      "results": {
+        "singles": { "place": 2, "notes": "Silver Medal" },
+        "doubles": null,
+        "mixed": null
+      }
+    }
+  ],
+  "upcoming": [
+    {
+      "name": "Winter Youth Championship",
+      "date": "2025-01-20",
+      "location": "Frankfurt, Germany",
+      "category": "U15",
+      "registeredFor": ["singles", "doubles"],
+      "notes": "Seeded 3rd in singles"
+    },
+    {
+      "name": "European Youth Circuit",
+      "date": "2025-02-15",
+      "location": "Vienna, Austria",
+      "category": "U17",
+      "registeredFor": ["singles", "mixed"],
+      "notes": "First international tournament of the season"
+    },
+    {
+      "name": "Spring Open",
+      "date": "2025-03-10",
+      "location": "Munich, Germany",
+      "category": "Open",
+      "registeredFor": ["singles"],
+      "notes": ""
+    }
+  ]
+}

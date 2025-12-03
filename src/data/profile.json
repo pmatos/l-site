@@ -1,0 +1,23 @@
+{
+  "name": "Linus",
+  "fullName": "Linus Matos",
+  "tagline": "Elite Youth Badminton Player",
+  "bio": "A passionate and dedicated badminton player competing at the highest youth level. Known for quick reflexes, strategic play, and an unwavering competitive spirit.",
+  "photo": "/images/linus.jpg",
+  "rankings": {
+    "singles": 8,
+    "doubles": 10,
+    "mixed": 3
+  },
+  "achievements": [
+    "Regional Youth Champion 2024",
+    "National U15 Finalist",
+    "Best Newcomer Award 2023"
+  ],
+  "club": "Your Club Name",
+  "startedPlaying": 2019,
+  "socialLinks": {
+    "instagram": "",
+    "youtube": ""
+  }
+}

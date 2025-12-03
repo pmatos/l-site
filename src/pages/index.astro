@@ -1,16 +1,54 @@
 ---
+import Layout from '../components/Layout.astro';
+import profile from '../data/profile.json';
 
+function getOrdinal(n: number): string {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return s[(v - 20) % 10] || s[v] || s[0];
+}
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <section class="hero container">
+    <div class="hero-image-container animate-fade-in">
+      {profile.photo ? (
+        <img src={profile.photo} alt={profile.name} class="hero-image" />
+      ) : (
+        <div class="hero-image-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          <span>Add photo to</span>
+          <code>public/images/linus.jpg</code>
+        </div>
+      )}
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-tagline animate-fade-in-up">{profile.tagline}</p>
+      <h1 class="hero-name animate-fade-in-up delay-100">{profile.name.toUpperCase()}</h1>
+
+      <div class="rankings">
+        <div class="ranking-item animate-fade-in-up delay-200">
+          <span class="ranking-number">
+            {profile.rankings.singles}<sup class="ranking-ordinal">{getOrdinal(profile.rankings.singles)}</sup>
+          </span>
+          <span class="ranking-label">Singles</span>
+        </div>
+        <div class="ranking-item animate-fade-in-up delay-300">
+          <span class="ranking-number">
+            {profile.rankings.doubles}<sup class="ranking-ordinal">{getOrdinal(profile.rankings.doubles)}</sup>
+          </span>
+          <span class="ranking-label">Doubles</span>
+        </div>
+        <div class="ranking-item animate-fade-in-up delay-400">
+          <span class="ranking-number">
+            {profile.rankings.mixed}<sup class="ranking-ordinal">{getOrdinal(profile.rankings.mixed)}</sup>
+          </span>
+          <span class="ranking-label">Mixed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
