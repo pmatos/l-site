@@ -13,15 +13,7 @@ const yearsPlaying = new Date().getFullYear() - profile.startedPlaying;
 
   <section class="about-content">
     <div class="about-image animate-fade-in">
-      {profile.photo ? (
-        <img src={profile.photo} alt={profile.fullName} />
-      ) : (
-        <div class="hero-image-placeholder" style="height: 100%;">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 48px; height: 48px; opacity: 0.3;">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-        </div>
-      )}
+      <img src="/images/linus-about.png" alt={profile.fullName} />
     </div>
 
     <div class="about-text">
