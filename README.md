@@ -2,7 +2,7 @@
 
 Personal website for Linus, an elite youth badminton player. Built with [Astro](https://astro.build).
 
-**Live site:** https://pmatos.github.io/l-site/
+**Live site:** https://l.ocmatos.com/
 
 ## Quick Start
 

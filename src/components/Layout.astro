@@ -13,8 +13,8 @@ const pageDescription = description || profile.tagline;
 const currentPath = Astro.url.pathname;
 
 function isActive(path: string): boolean {
-  if (path === '/l-site/' || path === '/l-site') {
-    return currentPath === '/l-site/' || currentPath === '/l-site';
+  if (path === '/') {
+    return currentPath === '/';
   }
   return currentPath.startsWith(path);
 }
@@ -27,24 +27,24 @@ function isActive(path: string): boolean {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content={pageDescription}>
   <title>{pageTitle}</title>
-  <link rel="icon" type="image/svg+xml" href="/l-site/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
 <body>
   <header class="header">
     <nav class="nav container">
-      <a href="/l-site/" class:list={["nav-link", { active: isActive('/l-site/') && currentPath === '/l-site/' }]}>
+      <a href="/" class:list={["nav-link", { active: isActive('/') && currentPath === '/' }]}>
         Home
       </a>
-      <a href="/l-site/about/" class:list={["nav-link", { active: isActive('/l-site/about') }]}>
+      <a href="/about/" class:list={["nav-link", { active: isActive('/about') }]}>
         About
       </a>
       <div class="nav-dropdown">
-        <span class:list={["nav-link", { active: isActive('/l-site/tournaments') }]}>
+        <span class:list={["nav-link", { active: isActive('/tournaments') }]}>
           Tournaments
         </span>
         <div class="nav-dropdown-menu">
-          <a href="/l-site/tournaments/past/" class="nav-dropdown-item">Past</a>
-          <a href="/l-site/tournaments/next/" class="nav-dropdown-item">Upcoming</a>
+          <a href="/tournaments/past/" class="nav-dropdown-item">Past</a>
+          <a href="/tournaments/next/" class="nav-dropdown-item">Upcoming</a>
         </div>
       </div>
     </nav>
