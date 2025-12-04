@@ -1,63 +1,757 @@
 {
   "past": [
     {
-      "name": "Regional Youth Championship",
-      "date": "2024-11-15",
-      "location": "Munich, Germany",
-      "category": "U15",
+      "name": "8. DBV A-RLT U11-U13 [SG] Bonn 2025",
+      "date": "2025-10-11",
+      "location": "Bonn-Beuel",
       "results": {
-        "singles": { "place": 1, "notes": "Gold Medal" },
-        "doubles": { "place": 2, "partner": "Partner Name" },
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "Round 3"
+        },
+        "doubles": {
+          "place": 5,
+          "category": "Boys Doubles U13",
+          "notes": "Quarter final"
+        },
+        "mixed": {
+          "place": 3,
+          "category": "Mixed U13",
+          "partner": "Liuchang Gui",
+          "notes": "Bronze Medal"
+        }
+      }
+    },
+    {
+      "name": "Bayerische Einzelmeisterschaft U11-U19 Neumarkt 2025",
+      "date": "2025-09-27",
+      "location": "Neumarkt",
+      "results": {
+        "singles": {
+          "place": 1,
+          "category": "Boys Singles U13",
+          "notes": "Gold Medal"
+        },
+        "doubles": {
+          "place": 2,
+          "category": "Boys Doubles U13",
+          "notes": "Silver Medal"
+        },
+        "mixed": {
+          "place": 2,
+          "category": "Mixed U13",
+          "partner": "Marie Ullmann",
+          "notes": "Silver Medal"
+        }
+      }
+    },
+    {
+      "name": "7. DBV A-RLT U11-U13 [SG] Hamburg 2025",
+      "date": "2025-09-20",
+      "location": "Hamburg",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "Round 3"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "notes": "9th/16th place"
+        },
+        "mixed": {
+          "place": null,
+          "category": "Mixed U13",
+          "partner": "Charlotte Dettmann",
+          "notes": "9th/16th place"
+        }
+      }
+    },
+    {
+      "name": "3. B-RLT Südost U13-U19 Herrenberg 2025",
+      "date": "2025-07-05",
+      "location": "Herrenberg, Germany",
+      "results": {
+        "singles": {
+          "place": 2,
+          "category": "Boys Singles U13",
+          "notes": "Silver Medal"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "notes": "3rd/4th place"
+        },
+        "mixed": {
+          "place": 1,
+          "category": "Mixed U13",
+          "partner": "Marie Ullmann",
+          "notes": "Gold Medal"
+        }
+      }
+    },
+    {
+      "name": "5. DBV A-RLT U11-U13 [SG] Trostberg 2025",
+      "date": "2025-05-31",
+      "location": "Trostberg",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "Round 3"
+        },
+        "doubles": {
+          "place": 5,
+          "category": "Boys Doubles U13",
+          "notes": "Quarter final"
+        },
+        "mixed": {
+          "place": 5,
+          "category": "Mixed U13",
+          "partner": "Marie Ullmann",
+          "notes": "Quarter final"
+        }
+      }
+    },
+    {
+      "name": "BBV Bezirksmeisterschaft Mittelfranken U9-U19 2025",
+      "date": "2025-05-10",
+      "location": "Spardorf",
+      "results": {
+        "singles": {
+          "place": 1,
+          "category": "Boys Singles U13",
+          "notes": "Gold Medal"
+        },
+        "doubles": {
+          "place": 1,
+          "category": "Boys Doubles U13",
+          "notes": "Gold Medal"
+        },
+        "mixed": {
+          "place": null,
+          "category": "Mixed U13",
+          "notes": "Round 3"
+        }
+      }
+    },
+    {
+      "name": "2. C1-RLT HES VICTOR U13,U15 2025",
+      "date": "2025-04-26",
+      "location": "Frankfurt",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U15",
+          "notes": "5th/6th place"
+        },
+        "doubles": null,
         "mixed": null
       }
     },
     {
-      "name": "National Junior Open",
-      "date": "2024-10-20",
-      "location": "Berlin, Germany",
-      "category": "U15",
+      "name": "3. DBV A-RLT U11-U13 [SG] Trostberg 2025",
+      "date": "2025-04-05",
+      "location": "Trostberg",
       "results": {
-        "singles": { "place": 3, "notes": "Bronze Medal" },
-        "doubles": null,
-        "mixed": { "place": 1, "partner": "Partner Name", "notes": "Gold Medal" }
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "Round 3"
+        },
+        "doubles": {
+          "place": 5,
+          "category": "Boys Doubles U13",
+          "notes": "Quarter final"
+        },
+        "mixed": {
+          "place": 5,
+          "category": "Mixed U13",
+          "partner": "Marie Ullmann",
+          "notes": "Quarter final"
+        }
       }
     },
     {
-      "name": "City Tournament",
-      "date": "2024-09-05",
-      "location": "Munich, Germany",
-      "category": "Open",
+      "name": "2. BBV C-RLT U11-U19 Neusäß 2025",
+      "date": "2025-03-15",
+      "location": "Neusäß",
       "results": {
-        "singles": { "place": 2, "notes": "Silver Medal" },
+        "singles": null,
+        "doubles": {
+          "place": 1,
+          "category": "Boys Doubles U15",
+          "notes": "Gold Medal"
+        },
+        "mixed": {
+          "place": null,
+          "category": "Mixed U15",
+          "partner": "Debra Schneider",
+          "notes": "3rd/4th place"
+        }
+      }
+    },
+    {
+      "name": "1. BBV D-RLT U11-U19 Nord Kleinschwarzenlohe 2025",
+      "date": "2025-02-08",
+      "location": "Wendelstein",
+      "results": {
+        "singles": {
+          "place": 1,
+          "category": "Boys Singles U15",
+          "notes": "Gold Medal"
+        },
         "doubles": null,
+        "mixed": null
+      }
+    },
+    {
+      "name": "1. DBV A-RLT U11-U13 [SG] Lüdinghausen 2025",
+      "date": "2025-02-01",
+      "location": "Lüdinghausen",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "Round 3"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "notes": "9th/16th place"
+        },
+        "mixed": {
+          "place": 5,
+          "category": "Mixed U13",
+          "partner": "Marie Ullmann",
+          "notes": "Quarter final"
+        }
+      }
+    },
+    {
+      "name": "1. B-RLT Südost U13-U19 Augsburg 2025",
+      "date": "2025-01-18",
+      "location": "Augsburg, Germany",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "9th/16th place"
+        },
+        "doubles": {
+          "place": 2,
+          "category": "Boys Doubles U13",
+          "notes": "Silver Medal"
+        },
+        "mixed": {
+          "place": 1,
+          "category": "Mixed U13",
+          "partner": "Marie Ullmann",
+          "notes": "Gold Medal"
+        }
+      }
+    },
+    {
+      "name": "Südostdeutsche Einzelmeisterschaft U13-U19 2024",
+      "date": "2024-10-26",
+      "location": "Germany",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "Round of 16"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "notes": "Round of 16"
+        },
+        "mixed": {
+          "place": null,
+          "category": "Mixed U13",
+          "partner": "Nilüfer Berber",
+          "notes": "Round of 16"
+        }
+      }
+    },
+    {
+      "name": "Bayerische Einzelmeisterschaft U11-U19 Neumarkt 2024",
+      "date": "2024-09-28",
+      "location": "Neumarkt",
+      "results": {
+        "singles": {
+          "place": 5,
+          "category": "Boys Singles U13",
+          "notes": "Quarter final"
+        },
+        "doubles": {
+          "place": 3,
+          "category": "Boys Doubles U13",
+          "notes": "Bronze Medal"
+        },
+        "mixed": {
+          "place": 5,
+          "category": "Mixed U13",
+          "partner": "Marie Wong",
+          "notes": "Quarter final"
+        }
+      }
+    },
+    {
+      "name": "Nordbayerische Einzelmeisterschaft U11-U19 Marktheidenfeld 2024",
+      "date": "2024-07-13",
+      "location": "Marktheidenfeld",
+      "results": {
+        "singles": {
+          "place": 1,
+          "category": "Boys Singles U13",
+          "notes": "Gold Medal"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "partner": "Benedikt Thilo Döring",
+          "notes": "Round 1"
+        },
+        "mixed": {
+          "place": null,
+          "category": "Mixed U13",
+          "partner": "Stephanie Li",
+          "notes": "Round 3"
+        }
+      }
+    },
+    {
+      "name": "4. BBV VICTOR C-RLT U11-U19 Marktheidenfeld 2024",
+      "date": "2024-06-08",
+      "location": "Marktheidenfeld",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U15",
+          "notes": "13th/14th place"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U15",
+          "notes": "3rd/4th place"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "BBV Bezirkseinzelmeisterschaft Mittelfranken U9-U19 Allersberg 2024",
+      "date": "2024-05-11",
+      "location": "Allersberg",
+      "results": {
+        "singles": {
+          "place": 1,
+          "category": "Boys Singles U13",
+          "notes": "Gold Medal"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "notes": "Round 2"
+        },
+        "mixed": {
+          "place": null,
+          "category": "Mixed U13",
+          "partner": "Stephanie Li",
+          "notes": "Round 3"
+        }
+      }
+    },
+    {
+      "name": "4. Trevor Stewart Cup U11-U19 (BBV D-RLT) Neubiberg 2024",
+      "date": "2024-05-04",
+      "location": "Neubiberg",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U15",
+          "notes": "3rd/4th place"
+        },
+        "doubles": null,
+        "mixed": {
+          "place": null,
+          "category": "Mixed U15",
+          "partner": "Marlene Nicolaisen",
+          "notes": "3rd/4th place"
+        }
+      }
+    },
+    {
+      "name": "3. BBV VICTOR C-RLT U11-U19 Dillingen 2024",
+      "date": "2024-04-20",
+      "location": "Dillingen",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U15",
+          "notes": "5th/8th place"
+        },
+        "doubles": null,
+        "mixed": {
+          "place": null,
+          "category": "Mixed U15",
+          "partner": "Debra Schneider",
+          "notes": "5th/8th place"
+        }
+      }
+    },
+    {
+      "name": "2. B-RLT Südost U13-U19 Zittau 2024",
+      "date": "2024-04-13",
+      "location": "Zittau, Germany",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "9th/16th place"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "notes": "3rd/4th place"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "1. BBV VICTOR D-RLT U13-U19 Kleinschwarzenlohe 2024",
+      "date": "2024-03-09",
+      "location": "Kleinschwarzenlohe",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U15",
+          "notes": "5th/8th place"
+        },
+        "doubles": {
+          "place": 2,
+          "category": "Boys Doubles U15",
+          "notes": "Silver Medal"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "2. DBV A-RLT U11-U13 [SG] Nürnberg (ohne U11 Sonntag) 2024",
+      "date": "2024-03-02",
+      "location": "Nürnberg",
+      "results": {
+        "singles": null,
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "notes": "9th/16th place"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "1. BBV E-RLT Mittelfranken U9-U17 Erlangen 2024",
+      "date": "2024-02-17",
+      "location": "Erlangen",
+      "results": {
+        "singles": {
+          "place": 1,
+          "category": "Boys Singles U13",
+          "notes": "Gold Medal"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "partner": "Julian Kreiner"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "1. B-RLT Südost U13-U19 Augsburg 2024",
+      "date": "2024-01-27",
+      "location": "Augsburg, Germany",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "9th/16th place"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "partner": "Arya Mendiratta",
+          "notes": "9th/10th place"
+        },
+        "mixed": {
+          "place": null,
+          "category": "Mixed U13",
+          "partner": "Enna Tippmann",
+          "notes": "5th/8th place"
+        }
+      }
+    },
+    {
+      "name": "1. BBV C-RLT U11-U19 Wendelstein 2024",
+      "date": "2024-01-13",
+      "location": "Kleinschwarzenlohe",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "5th/8th place"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "notes": "3rd/4th place"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "5. BBV YONEX C-RLT U11-U19 Neusäß 2023",
+      "date": "2023-11-18",
+      "location": "Neusäß",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U11",
+          "notes": "9th/12th place"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U11",
+          "notes": "3rd/4th place"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "German-Masters Finale U11 2023",
+      "date": "2023-11-11",
+      "location": "Gütersloh",
+      "results": {
+        "singles": null,
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U11",
+          "notes": "Round 2"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "10. DBV A-RLT U11-U13 [SG] Victor-Avacon-Cup Liebenau (nur U11 Sonntag) 2023",
+      "date": "2023-10-15",
+      "location": "Liebenau",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U11",
+          "notes": "Round 2"
+        },
+        "doubles": null,
+        "mixed": null
+      }
+    },
+    {
+      "name": "10. DBV A-RLT U11-U13 [SG] Victor-Avacon-Cup Liebenau (ohne U11 Sonntag) 2023",
+      "date": "2023-10-13",
+      "location": "Liebenau",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U11",
+          "notes": "Round 3"
+        },
+        "doubles": null,
+        "mixed": null
+      }
+    },
+    {
+      "name": "Bayerische YONEX Einzelmeisterschaft U11-U19 Neumarkt 2023",
+      "date": "2023-09-30",
+      "location": "Neumarkt",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U11",
+          "notes": "9th/16th place"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U11",
+          "partner": "Luke Si",
+          "notes": "5th/8th place"
+        },
+        "mixed": {
+          "place": null,
+          "category": "Mixed U13",
+          "partner": "Debra Schneider",
+          "notes": "Round of 16"
+        }
+      }
+    },
+    {
+      "name": "7-Hügel-Cup U11-U19 (BBV D-RLT) Bamberg 2023",
+      "date": "2023-07-22",
+      "location": "Bamberg, Germany",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "3rd/4th place"
+        },
+        "doubles": null,
+        "mixed": {
+          "place": 1,
+          "category": "Mixed U13",
+          "partner": "Debra Schneider",
+          "notes": "Gold Medal"
+        }
+      }
+    },
+    {
+      "name": "Nordbayerische YONEX Einzelmeisterschaft U11-U19 Lauf 2023",
+      "date": "2023-07-08",
+      "location": "Lauf",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U11",
+          "notes": "Round 3"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U11",
+          "partner": "Bowen Zheng",
+          "notes": "Round 3"
+        },
+        "mixed": {
+          "place": 3,
+          "category": "Mixed U13",
+          "partner": "Mia Kutzer",
+          "notes": "Bronze Medal"
+        }
+      }
+    },
+    {
+      "name": "7. DBV A-RLT U11-U13 [SG] Hofheim 2023",
+      "date": "2023-07-01",
+      "location": "Hofheim am Taunus",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U11",
+          "notes": "Round 3"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U11",
+          "partner": "Jonathan Hartmüller",
+          "notes": "Round 3"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "2. BBV E-RLT Niederbayern-Oberpfalz U9-U17 Neumarkt 2023",
+      "date": "2023-06-10",
+      "location": "Neumarkt",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U13",
+          "notes": "3rd/4th place"
+        },
+        "doubles": null,
+        "mixed": {
+          "place": null,
+          "category": "Mixed U13",
+          "partner": "Debra Schneider",
+          "notes": "Round 3"
+        }
+      }
+    },
+    {
+      "name": "BBV Bezirkseinzelmeisterschaft Mittelfranken U9-U19 Wendelstein 2023",
+      "date": "2023-05-13",
+      "location": "Wendelstein",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U11",
+          "notes": "Round 3"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U11",
+          "partner": "Bowen Zheng",
+          "notes": "Round 2"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "5. DBV A-RLT U11-U13 [SG] Victor Nürnberg Youth 2023",
+      "date": "2023-05-06",
+      "location": "Nürnberg",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U11",
+          "notes": "Round 3"
+        },
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U11",
+          "partner": "Jonathan Schön",
+          "notes": "Round 3"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "3. BBV YONEX C-RLT U11-U19 Dillingen 2023",
+      "date": "2023-04-22",
+      "location": "Dillingen",
+      "results": {
+        "singles": {
+          "place": 2,
+          "category": "Boys Singles U11",
+          "notes": "Silver Medal"
+        },
+        "doubles": {
+          "place": 1,
+          "category": "Boys Doubles U11",
+          "notes": "Gold Medal"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "1. Frühlingsturnier des TSV 1846 Nürnberg U11-U19 (BBV D-RLT) 2023",
+      "date": "2023-03-25",
+      "location": "Nürnberg",
+      "results": {
+        "singles": {
+          "place": null,
+          "category": "Boys Singles U11",
+          "notes": "3rd/4th place"
+        },
+        "doubles": {
+          "place": 1,
+          "category": "Boys Doubles U11",
+          "partner": "Bowen Zheng",
+          "notes": "Gold Medal"
+        },
         "mixed": null
       }
     }
   ],
-  "upcoming": [
-    {
-      "name": "Winter Youth Championship",
-      "date": "2025-01-20",
-      "location": "Frankfurt, Germany",
-      "category": "U15",
-      "registeredFor": ["singles", "doubles"],
-      "notes": "Seeded 3rd in singles"
-    },
-    {
-      "name": "European Youth Circuit",
-      "date": "2025-02-15",
-      "location": "Vienna, Austria",
-      "category": "U17",
-      "registeredFor": ["singles", "mixed"],
-      "notes": "First international tournament of the season"
-    },
-    {
-      "name": "Spring Open",
-      "date": "2025-03-10",
-      "location": "Munich, Germany",
-      "category": "Open",
-      "registeredFor": ["singles"],
-      "notes": ""
-    }
-  ]
+  "upcoming": []
 }
