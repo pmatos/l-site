@@ -32,24 +32,34 @@ function getOrdinal(n: number): string {
       <p class="hero-tagline animate-fade-in-up">{profile.tagline}</p>
       <h1 class="hero-name animate-fade-in-up delay-100">{profile.name.toUpperCase()}</h1>
 
-      <div class="rankings">
-        <div class="ranking-item animate-fade-in-up delay-200">
-          <span class="ranking-number">
-            {profile.rankings.singles}<sup class="ranking-ordinal">{getOrdinal(profile.rankings.singles)}</sup>
-          </span>
-          <span class="ranking-label">Singles</span>
+      <div class="rankings-container">
+        <div class="nationality-marker animate-fade-in-up delay-200">
+          <div class="nationality-flag-bar"></div>
+          <div class="nationality-text">
+            <span class="nationality-code">GERMANY</span>
+            <span class="nationality-age">U13</span>
+          </div>
         </div>
-        <div class="ranking-item animate-fade-in-up delay-300">
-          <span class="ranking-number">
-            {profile.rankings.doubles}<sup class="ranking-ordinal">{getOrdinal(profile.rankings.doubles)}</sup>
-          </span>
-          <span class="ranking-label">Doubles</span>
-        </div>
-        <div class="ranking-item animate-fade-in-up delay-400">
-          <span class="ranking-number">
-            {profile.rankings.mixed}<sup class="ranking-ordinal">{getOrdinal(profile.rankings.mixed)}</sup>
-          </span>
-          <span class="ranking-label">Mixed</span>
+        <div class="rankings">
+          <div class="rankings-header">Rangliste</div>
+          <div class="ranking-item animate-fade-in-up delay-200">
+            <span class="ranking-number">
+              {profile.rankings.singles}<sup class="ranking-ordinal">{getOrdinal(profile.rankings.singles)}</sup>
+            </span>
+            <span class="ranking-label">Singles</span>
+          </div>
+          <div class="ranking-item animate-fade-in-up delay-300">
+            <span class="ranking-number">
+              {profile.rankings.doubles}<sup class="ranking-ordinal">{getOrdinal(profile.rankings.doubles)}</sup>
+            </span>
+            <span class="ranking-label">Doubles</span>
+          </div>
+          <div class="ranking-item animate-fade-in-up delay-400">
+            <span class="ranking-number">
+              {profile.rankings.mixed}<sup class="ranking-ordinal">{getOrdinal(profile.rankings.mixed)}</sup>
+            </span>
+            <span class="ranking-label">Mixed</span>
+          </div>
         </div>
       </div>
     </div>
