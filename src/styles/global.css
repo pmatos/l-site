@@ -47,6 +47,8 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -158,6 +160,9 @@ img {
 /* Main Content */
 main {
   padding-top: 80px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Footer */
@@ -165,7 +170,7 @@ main {
   padding: var(--spacing-lg) var(--spacing-md);
   text-align: center;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  margin-top: var(--spacing-xl);
+  margin-top: auto;
 }
 
 .footer-content {
@@ -184,7 +189,7 @@ main {
 
 /* Hero Section */
 .hero {
-  min-height: calc(100vh - 80px);
+  flex: 1;
   display: grid;
   grid-template-columns: minmax(300px, 500px) 1fr;
   align-items: center;
