@@ -1,6 +1,45 @@
 {
   "past": [
     {
+      "name": "Deutsche Einzelmeisterschaft U13 Trostberg 2025",
+      "date": "2025-12-06",
+      "location": "Trostberg",
+      "results": {
+        "singles": null,
+        "doubles": {
+          "place": null,
+          "category": "Boys Doubles U13",
+          "partner": "Jaivigna Bollampalli",
+          "notes": "Round of 32"
+        },
+        "mixed": null
+      }
+    },
+    {
+      "name": "Südostdeutsche Einzelmeisterschaft U13-U19 Eggenstein 2025",
+      "date": "2025-11-08",
+      "location": "Eggenstein, Germany",
+      "results": {
+        "singles": {
+          "place": 5,
+          "category": "Boys Singles U13",
+          "notes": "Quarter final"
+        },
+        "doubles": {
+          "place": 1,
+          "category": "Boys Doubles U13",
+          "partner": "Jaivigna Bollampalli",
+          "notes": "Gold Medal"
+        },
+        "mixed": {
+          "place": 3,
+          "category": "Mixed U13",
+          "partner": "Marie Ullmann",
+          "notes": "Bronze Medal"
+        }
+      }
+    },
+    {
       "name": "8. DBV A-RLT U11-U13 [SG] Bonn 2025",
       "date": "2025-10-11",
       "location": "Bonn-Beuel",

@@ -178,8 +178,9 @@ function extractCategoryResult(categoryBlock, categoryName) {
     const roundMatch = matchBlock.match(/match__header-title-item[^>]*>[\s\S]*?<span class="nav-link__value">([^<]+)<\/span>/);
     const round = roundMatch ? roundMatch[1].trim() : '';
 
-    // Check if Linus won or lost
-    const linusRow = matchBlock.indexOf(LINUS_NAME);
+    // Check if Linus won or lost (case-insensitive)
+    const matchBlockLower = matchBlock.toLowerCase();
+    const linusRow = matchBlockLower.indexOf(LINUS_NAME.toLowerCase());
     if (linusRow === -1) continue;
 
     // Find the row containing Linus
