@@ -44,15 +44,19 @@ function getOrdinal(n: number): string {
         const date = formatDate(tournament.date);
         const results = [];
 
-        if (tournament.results.singles) {
+        // Only include results with podium placements (1st, 2nd, or 3rd)
+        if (tournament.results.singles && tournament.results.singles.place && tournament.results.singles.place <= 3) {
           results.push({ type: 'Singles', ...tournament.results.singles });
         }
-        if (tournament.results.doubles) {
+        if (tournament.results.doubles && tournament.results.doubles.place && tournament.results.doubles.place <= 3) {
           results.push({ type: 'Doubles', ...tournament.results.doubles });
         }
-        if (tournament.results.mixed) {
+        if (tournament.results.mixed && tournament.results.mixed.place && tournament.results.mixed.place <= 3) {
           results.push({ type: 'Mixed', ...tournament.results.mixed });
         }
+
+        // Skip tournaments without any podium placements
+        if (results.length === 0) return null;
 
         return (
           <article class={`tournament-card animate-fade-in-up delay-${(index % 5) * 100}`}>
