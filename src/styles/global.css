@@ -606,6 +606,21 @@ main {
   opacity: 0.8;
 }
 
+.result-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.result-partner {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 100px;
+  line-height: 1.2;
+}
+
 /* Upcoming badge */
 .upcoming-events {
   display: flex;

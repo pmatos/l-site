@@ -43,15 +43,16 @@ function getOrdinal(n: number): string {
       pastTournaments.map((tournament, index) => {
         const date = formatDate(tournament.date);
         const results = [];
+        const isPodium = (place: number | null) => place !== null && place > 0 && place < 4;
 
         // Only include results with podium placements (1st, 2nd, or 3rd)
-        if (tournament.results.singles && tournament.results.singles.place && tournament.results.singles.place <= 3) {
+        if (tournament.results.singles && isPodium(tournament.results.singles.place)) {
           results.push({ type: 'Singles', ...tournament.results.singles });
         }
-        if (tournament.results.doubles && tournament.results.doubles.place && tournament.results.doubles.place <= 3) {
+        if (tournament.results.doubles && isPodium(tournament.results.doubles.place)) {
           results.push({ type: 'Doubles', ...tournament.results.doubles });
         }
-        if (tournament.results.mixed && tournament.results.mixed.place && tournament.results.mixed.place <= 3) {
+        if (tournament.results.mixed && isPodium(tournament.results.mixed.place)) {
           results.push({ type: 'Mixed', ...tournament.results.mixed });
         }
 
@@ -73,9 +74,14 @@ function getOrdinal(n: number): string {
 
             <div class="tournament-results">
               {results.map((result) => (
-                <div class={`result-badge ${getPlaceClass(result.place)}`}>
-                  <span class="result-place">{getOrdinal(result.place)}</span>
-                  <span class="result-type">{result.type}</span>
+                <div class="result-item">
+                  <div class={`result-badge ${getPlaceClass(result.place)}`}>
+                    <span class="result-place">{getOrdinal(result.place)}</span>
+                    <span class="result-type">{result.type}</span>
+                  </div>
+                  {result.partner && (
+                    <span class="result-partner">with {result.partner}</span>
+                  )}
                 </div>
               ))}
             </div>
