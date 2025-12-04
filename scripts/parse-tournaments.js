@@ -143,24 +143,44 @@ function extractCategoryResult(categoryBlock, categoryName) {
     let partner = null;
     if (type === 'doubles' || type === 'mixed') {
       // Find the match__row containing Linus
-      const rowStart = beforeLinus.lastIndexOf('<div class="match__row');
-      const rowEnd = afterLinus.indexOf('</div>') + afterLinus.indexOf('</div>', afterLinus.indexOf('</div>') + 1);
-      const rowContent = matchBlock.substring(rowStart, linusRow + rowEnd);
+      const rowStartIdx = beforeLinus.lastIndexOf('<div class="match__row');
 
-      // Extract all player names in this row
-      const playerPattern = /<span class="nav-link__value">([^<]+)<\/span>/g;
-      const players = [];
-      let playerMatch;
-      while ((playerMatch = playerPattern.exec(rowContent)) !== null) {
-        const name = decodeHtmlEntities(playerMatch[1].trim());
-        if (name && !name.includes('Round') && !name.includes('Quarter') &&
-            !name.includes('Semi') && !name.includes('Final') && !name.includes('place') &&
-            !name.includes('H2H') && !name.includes('Rast')) {
-          players.push(name);
+      if (rowStartIdx !== -1) {
+        // Extract a reasonable chunk that contains the full row with both players
+        const rowContent = matchBlock.substring(rowStartIdx, linusRow + 500);
+
+        // Extract all player names - look for player links with nav-link__value spans
+        const playerPattern = /<a[^>]*href="[^"]*player[^"]*"[^>]*>[\s\S]*?<span class="nav-link__value">([^<]+)<\/span>/g;
+        const players = [];
+        let playerMatch;
+        while ((playerMatch = playerPattern.exec(rowContent)) !== null) {
+          const name = decodeHtmlEntities(playerMatch[1].trim());
+          if (name && name.length > 2 &&
+              !name.includes('Round') && !name.includes('Quarter') &&
+              !name.includes('Semi') && !name.includes('Final') && !name.includes('place') &&
+              !name.includes('H2H') && !name.includes('Rast') &&
+              !/^[WL]$/.test(name) && !/^\d+$/.test(name)) {
+            players.push(name);
+          }
         }
-      }
 
-      partner = players.find(p => p !== LINUS_NAME) || null;
+        // If player link pattern didn't work, try simpler nav-link__value pattern
+        if (players.length === 0) {
+          const simplePattern = /<span class="nav-link__value">([^<]+)<\/span>/g;
+          while ((playerMatch = simplePattern.exec(rowContent)) !== null) {
+            const name = decodeHtmlEntities(playerMatch[1].trim());
+            if (name && name.length > 5 &&
+                !name.includes('Round') && !name.includes('Quarter') &&
+                !name.includes('Semi') && !name.includes('Final') && !name.includes('place') &&
+                !name.includes('H2H') && !name.includes('Rast') && !name.includes('Platz') &&
+                !/^[WL]$/.test(name) && !/^\d+$/.test(name) && !/^\d+-\d+$/.test(name)) {
+              players.push(name);
+            }
+          }
+        }
+
+        partner = players.find(p => p !== LINUS_NAME) || null;
+      }
     }
 
     matches.push({

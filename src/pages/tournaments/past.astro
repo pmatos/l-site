@@ -45,19 +45,19 @@ function getOrdinal(n: number): string {
         const results = [];
         const isPodium = (place: number | null) => place !== null && place > 0 && place < 4;
 
-        // Only include results with podium placements (1st, 2nd, or 3rd)
-        if (tournament.results.singles && isPodium(tournament.results.singles.place)) {
+        // Include all results
+        if (tournament.results.singles) {
           results.push({ type: 'Singles', ...tournament.results.singles });
         }
-        if (tournament.results.doubles && isPodium(tournament.results.doubles.place)) {
+        if (tournament.results.doubles) {
           results.push({ type: 'Doubles', ...tournament.results.doubles });
         }
-        if (tournament.results.mixed && isPodium(tournament.results.mixed.place)) {
+        if (tournament.results.mixed) {
           results.push({ type: 'Mixed', ...tournament.results.mixed });
         }
 
-        // Skip tournaments without any podium placements
-        if (results.length === 0) return null;
+        // Get podium results for badges
+        const podiumResults = results.filter(r => isPodium(r.place));
 
         return (
           <article class={`tournament-card animate-fade-in-up delay-${(index % 5) * 100}`}>
@@ -72,19 +72,21 @@ function getOrdinal(n: number): string {
               <span class="tournament-category">{tournament.category}</span>
             </div>
 
-            <div class="tournament-results">
-              {results.map((result) => (
-                <div class="result-item">
-                  <div class={`result-badge ${getPlaceClass(result.place)}`}>
-                    <span class="result-place">{getOrdinal(result.place)}</span>
-                    <span class="result-type">{result.type}</span>
+            {podiumResults.length > 0 && (
+              <div class="tournament-results">
+                {podiumResults.map((result) => (
+                  <div class="result-item">
+                    <div class={`result-badge ${getPlaceClass(result.place)}`}>
+                      <span class="result-place">{getOrdinal(result.place)}</span>
+                      <span class="result-type">{result.type}</span>
+                    </div>
+                    {result.partner && (
+                      <span class="result-partner">with {result.partner}</span>
+                    )}
                   </div>
-                  {result.partner && (
-                    <span class="result-partner">with {result.partner}</span>
-                  )}
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </article>
         );
       })
