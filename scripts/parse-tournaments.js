@@ -193,44 +193,46 @@ function extractCategoryResult(categoryBlock, categoryName) {
     // For doubles/mixed, find the partner
     let partner = null;
     if (type === 'doubles' || type === 'mixed') {
-      // Find the match__row containing Linus
-      const rowStartIdx = beforeLinus.lastIndexOf('<div class="match__row');
-      const rowEndIdx = matchBlock.indexOf('</div>', linusRow + LINUS_NAME.length + 200);
+      // Find all match__row divs (but not match__row-wrapper or match__row-title)
+      // Pattern: match__row followed by space or has-won
+      const rowPattern = /<div class="match__row(?= |")/g;
+      const rowStarts = [];
+      let rowMatch;
+      while ((rowMatch = rowPattern.exec(matchBlock)) !== null) {
+        rowStarts.push(rowMatch.index);
+      }
 
-      if (rowStartIdx !== -1) {
-        const rowContent = matchBlock.substring(rowStartIdx, Math.min(rowEndIdx + 100, matchBlock.length));
+      // Extract each row's content
+      for (let j = 0; j < rowStarts.length; j++) {
+        const rowStart = rowStarts[j];
+        const rowEnd = j < rowStarts.length - 1 ? rowStarts[j + 1] : matchBlock.length;
+        const rowContent = matchBlock.substring(rowStart, rowEnd);
 
-        // Extract all player names - look for player links with nav-link__value spans
-        const playerPattern = /<a[^>]*href="[^"]*player[^"]*"[^>]*>[\s\S]*?<span class="nav-link__value">([^<]+)<\/span>/g;
-        const players = [];
-        let playerMatch;
-        while ((playerMatch = playerPattern.exec(rowContent)) !== null) {
-          const name = decodeHtmlEntities(playerMatch[1].trim());
-          if (name && name.length > 2 &&
-              !name.includes('Round') && !name.includes('Quarter') &&
-              !name.includes('Semi') && !name.includes('Final') && !name.includes('place') &&
-              !name.includes('H2H') && !name.includes('Rast') &&
-              !/^[WL]$/.test(name) && !/^\d+$/.test(name)) {
-            players.push(name);
-          }
-        }
+        // Check if this row contains Linus (case-insensitive)
+        const rowLower = rowContent.toLowerCase();
+        if (rowLower.includes('linus') &&
+            (rowLower.includes('oliveira') || rowLower.includes('matos'))) {
 
-        // If player link pattern didn't work, try simpler nav-link__value pattern
-        if (players.length === 0) {
-          const simplePattern = /<span class="nav-link__value">([^<]+)<\/span>/g;
-          while ((playerMatch = simplePattern.exec(rowContent)) !== null) {
+          // Extract all player names from this row using player links
+          const playerPattern = /player\.aspx[^"]*"[^>]*>\s*<span class="nav-link__value">([^<]+)/g;
+          const players = [];
+          let playerMatch;
+
+          while ((playerMatch = playerPattern.exec(rowContent)) !== null) {
             const name = decodeHtmlEntities(playerMatch[1].trim());
-            if (name && name.length > 5 &&
-                !name.includes('Round') && !name.includes('Quarter') &&
-                !name.includes('Semi') && !name.includes('Final') && !name.includes('place') &&
-                !name.includes('H2H') && !name.includes('Rast') && !name.includes('Platz') &&
-                !/^[WL]$/.test(name) && !/^\d+$/.test(name) && !/^\d+-\d+$/.test(name)) {
+            if (name && name.length > 2) {
               players.push(name);
             }
           }
-        }
 
-        partner = players.find(p => p !== LINUS_NAME) || null;
+          // Partner is the player that is not Linus
+          partner = players.find(p => {
+            const pLower = p.toLowerCase();
+            return !pLower.includes('linus') && !pLower.includes('matos');
+          }) || null;
+
+          break;
+        }
       }
     }
 

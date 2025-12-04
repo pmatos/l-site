@@ -13,6 +13,7 @@
         "doubles": {
           "place": 5,
           "category": "Boys Doubles U13",
+          "partner": "Jaivigna Bollampalli",
           "notes": "Quarter final"
         },
         "mixed": {
@@ -36,7 +37,7 @@
         "doubles": {
           "place": 2,
           "category": "Boys Doubles U13",
-          "partner": "Leo Baumann",
+          "partner": "Jaivigna Bollampalli",
           "notes": "Silver Medal"
         },
         "mixed": {
@@ -60,6 +61,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
+          "partner": "Jaivigna Bollampalli",
           "notes": "9th/16th place"
         },
         "mixed": {
@@ -83,7 +85,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
-          "partner": "Frederik Beck",
+          "partner": "Jaivigna Bollampalli",
           "notes": "3rd/4th place"
         },
         "mixed": {
@@ -107,7 +109,7 @@
         "doubles": {
           "place": 5,
           "category": "Boys Doubles U13",
-          "partner": "Phileas Bäsler",
+          "partner": "Jaivigna Bollampalli",
           "notes": "Quarter final"
         },
         "mixed": {
@@ -131,13 +133,13 @@
         "doubles": {
           "place": 1,
           "category": "Boys Doubles U13",
-          "partner": "Benjamin Roth",
+          "partner": "Erik Chen",
           "notes": "Gold Medal"
         },
         "mixed": {
           "place": null,
           "category": "Mixed U13",
-          "partner": "Lea Buckel",
+          "partner": "Ela Buza",
           "notes": "Round 3"
         }
       }
@@ -169,7 +171,7 @@
         "doubles": {
           "place": 5,
           "category": "Boys Doubles U13",
-          "partner": "Julian Du Bois",
+          "partner": "Jaivigna Bollampalli",
           "notes": "Quarter final"
         },
         "mixed": {
@@ -189,6 +191,7 @@
         "doubles": {
           "place": 1,
           "category": "Boys Doubles U15",
+          "partner": "Jaivigna Bollampalli",
           "notes": "Gold Medal"
         },
         "mixed": {
@@ -226,6 +229,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
+          "partner": "Jaivigna Bollampalli",
           "notes": "9th/16th place"
         },
         "mixed": {
@@ -249,6 +253,7 @@
         "doubles": {
           "place": 2,
           "category": "Boys Doubles U13",
+          "partner": "Jaivigna Bollampalli",
           "notes": "Silver Medal"
         },
         "mixed": {
@@ -272,7 +277,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
-          "partner": "Artur Kunert",
+          "partner": "Sebastian Albert",
           "notes": "Round of 16"
         },
         "mixed": {
@@ -296,6 +301,7 @@
         "doubles": {
           "place": 3,
           "category": "Boys Doubles U13",
+          "partner": "Sebastian Albert",
           "notes": "Bronze Medal"
         },
         "mixed": {
@@ -343,6 +349,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U15",
+          "partner": "Sebastian Albert",
           "notes": "3rd/4th place"
         },
         "mixed": null
@@ -361,7 +368,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
-          "partner": "Benedikt Thilo Döring",
+          "partner": "Erik Chen",
           "notes": "Round 2"
         },
         "mixed": {
@@ -423,6 +430,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
+          "partner": "Sebastian Albert",
           "notes": "3rd/4th place"
         },
         "mixed": null
@@ -441,6 +449,7 @@
         "doubles": {
           "place": 2,
           "category": "Boys Doubles U15",
+          "partner": "Sebastian Albert",
           "notes": "Silver Medal"
         },
         "mixed": null
@@ -455,7 +464,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
-          "partner": "Ole Beer",
+          "partner": "Sebastian Albert",
           "notes": "9th/16th place"
         },
         "mixed": null
@@ -516,7 +525,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
-          "partner": "Jaivigna Bollampalli",
+          "partner": "Sebastian Albert",
           "notes": "3rd/4th place"
         },
         "mixed": null
@@ -535,7 +544,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U11",
-          "partner": "Vineeth Chandramohan",
+          "partner": "Sebastian Albert",
           "notes": "3rd/4th place"
         },
         "mixed": null
@@ -550,6 +559,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U11",
+          "partner": "Sebastian Albert",
           "notes": "Round 2"
         },
         "mixed": null
@@ -739,7 +749,7 @@
         "doubles": {
           "place": 1,
           "category": "Boys Doubles U11",
-          "partner": "Leo Baumann",
+          "partner": "Luis Canstein",
           "notes": "Gold Medal"
         },
         "mixed": null
