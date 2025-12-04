@@ -1,10 +1,17 @@
 import { readFileSync, writeFileSync } from 'fs';
+import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { tmpdir } from 'os';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+// Player GUID on dbv.turnier.de
+const PLAYER_GUID = '2dfc8260-6909-49ca-acb8-ed6068a80116';
+const YEARS = ['2023', '2024', '2025'];
+const BASE_URL = 'https://dbv.turnier.de';
+const COOKIE_FILE = join(tmpdir(), 'dbv-turnier-cookies.txt');
 const LINUS_NAME = 'Linus de Oliveira Cantante de Matos';
 
 function decodeHtmlEntities(text) {
@@ -20,6 +27,51 @@ function decodeHtmlEntities(text) {
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"');
+}
+
+function curlFetch(url) {
+  const cmd = [
+    'curl', '-s', '-L', '-f',
+    '-c', COOKIE_FILE,
+    '-b', COOKIE_FILE,
+    '-H', '"User-Agent: Mozilla/5.0"',
+    `"${url}"`
+  ];
+
+  const result = execSync(cmd.join(' '), {
+    encoding: 'utf-8',
+    shell: true,
+    maxBuffer: 10 * 1024 * 1024
+  });
+
+  return result;
+}
+
+function acceptCookies(returnUrl) {
+  console.log('Accepting cookies for dbv.turnier.de...');
+  const cmd = [
+    'curl', '-s', '-L',
+    '-c', COOKIE_FILE,
+    '-b', COOKIE_FILE,
+    '-H', '"User-Agent: Mozilla/5.0"',
+    '-H', '"Content-Type: application/x-www-form-urlencoded"',
+    '--data-urlencode', `"ReturnUrl=${returnUrl}"`,
+    '--data-urlencode', '"CookiePurposes=1"',
+    '--data-urlencode', '"SettingsOpen=false"',
+    `"${BASE_URL}/cookiewall/Save"`
+  ];
+
+  execSync(cmd.join(' '), {
+    encoding: 'utf-8',
+    shell: true,
+    maxBuffer: 10 * 1024 * 1024
+  });
+}
+
+function fetchTournamentPage(year) {
+  const url = `${BASE_URL}/player-profile/${PLAYER_GUID}/tournaments/${year}`;
+  console.log(`Fetching ${year} tournaments...`);
+  return curlFetch(url);
 }
 
 function extractTournaments(html) {
@@ -110,7 +162,6 @@ function extractCategoryResult(categoryBlock, categoryName) {
   // Determine category type
   const isDoubles = categoryName.startsWith('JD') || categoryName.startsWith('MD');
   const isMixed = categoryName.startsWith('MX') || categoryName.startsWith('GD');
-  const isSingles = categoryName.startsWith('JE') || categoryName.startsWith('ME');
 
   let type = 'singles';
   if (isDoubles) type = 'doubles';
@@ -144,10 +195,10 @@ function extractCategoryResult(categoryBlock, categoryName) {
     if (type === 'doubles' || type === 'mixed') {
       // Find the match__row containing Linus
       const rowStartIdx = beforeLinus.lastIndexOf('<div class="match__row');
+      const rowEndIdx = matchBlock.indexOf('</div>', linusRow + LINUS_NAME.length + 200);
 
       if (rowStartIdx !== -1) {
-        // Extract a reasonable chunk that contains the full row with both players
-        const rowContent = matchBlock.substring(rowStartIdx, linusRow + 500);
+        const rowContent = matchBlock.substring(rowStartIdx, Math.min(rowEndIdx + 100, matchBlock.length));
 
         // Extract all player names - look for player links with nav-link__value spans
         const playerPattern = /<a[^>]*href="[^"]*player[^"]*"[^>]*>[\s\S]*?<span class="nav-link__value">([^<]+)<\/span>/g;
@@ -307,37 +358,44 @@ function formatTournamentData(allTournaments) {
 }
 
 // Main execution
-const years = ['2023', '2024', '2025'];
-const allTournaments = [];
+try {
+  // Accept cookies first
+  acceptCookies(`/player-profile/${PLAYER_GUID}/tournaments/2024`);
 
-for (const year of years) {
-  const htmlPath = `/tmp/tournaments_${year}.html`;
-  try {
-    const html = readFileSync(htmlPath, 'utf-8');
-    const tournaments = extractTournaments(html);
-    console.log(`${year}: Found ${tournaments.length} tournaments`);
-    allTournaments.push(...tournaments);
-  } catch (err) {
-    console.error(`Error reading ${year}: ${err.message}`);
+  const allTournaments = [];
+
+  for (const year of YEARS) {
+    try {
+      const html = fetchTournamentPage(year);
+      const tournaments = extractTournaments(html);
+      console.log(`${year}: Found ${tournaments.length} tournaments`);
+      allTournaments.push(...tournaments);
+    } catch (err) {
+      console.error(`Error fetching ${year}: ${err.message}`);
+    }
   }
+
+  console.log(`\nTotal tournaments: ${allTournaments.length}`);
+
+  const formattedData = formatTournamentData(allTournaments);
+
+  console.log('\n--- Sample Tournament Data ---\n');
+  console.log(JSON.stringify(formattedData.slice(0, 3), null, 2));
+  console.log(`... and ${Math.max(0, formattedData.length - 3)} more tournaments`);
+
+  // Update tournaments.json
+  const tournamentsPath = join(__dirname, '..', 'src', 'data', 'tournaments.json');
+  const existing = JSON.parse(readFileSync(tournamentsPath, 'utf-8'));
+
+  // Replace past tournaments with extracted data, but preserve upcoming
+  const updated = {
+    past: formattedData,
+    upcoming: existing.upcoming || []
+  };
+
+  writeFileSync(tournamentsPath, JSON.stringify(updated, null, 2) + '\n');
+  console.log('\nUpdated tournaments.json (preserved upcoming tournaments)');
+} catch (error) {
+  console.error('Error:', error.message);
+  process.exit(1);
 }
-
-console.log(`\nTotal tournaments: ${allTournaments.length}`);
-
-const formattedData = formatTournamentData(allTournaments);
-
-console.log('\n--- Formatted Tournament Data ---\n');
-console.log(JSON.stringify(formattedData, null, 2));
-
-// Update tournaments.json
-const tournamentsPath = join(__dirname, '..', 'src', 'data', 'tournaments.json');
-const existing = JSON.parse(readFileSync(tournamentsPath, 'utf-8'));
-
-// Replace past tournaments with extracted data, but preserve upcoming
-const updated = {
-  past: formattedData,
-  upcoming: existing.upcoming || []
-};
-
-writeFileSync(tournamentsPath, JSON.stringify(updated, null, 2) + '\n');
-console.log('\nUpdated tournaments.json (preserved upcoming tournaments)');

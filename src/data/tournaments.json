@@ -36,6 +36,7 @@
         "doubles": {
           "place": 2,
           "category": "Boys Doubles U13",
+          "partner": "Leo Baumann",
           "notes": "Silver Medal"
         },
         "mixed": {
@@ -82,6 +83,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
+          "partner": "Frederik Beck",
           "notes": "3rd/4th place"
         },
         "mixed": {
@@ -105,6 +107,7 @@
         "doubles": {
           "place": 5,
           "category": "Boys Doubles U13",
+          "partner": "Phileas Bäsler",
           "notes": "Quarter final"
         },
         "mixed": {
@@ -128,11 +131,13 @@
         "doubles": {
           "place": 1,
           "category": "Boys Doubles U13",
+          "partner": "Benjamin Roth",
           "notes": "Gold Medal"
         },
         "mixed": {
           "place": null,
           "category": "Mixed U13",
+          "partner": "Lea Buckel",
           "notes": "Round 3"
         }
       }
@@ -164,6 +169,7 @@
         "doubles": {
           "place": 5,
           "category": "Boys Doubles U13",
+          "partner": "Julian Du Bois",
           "notes": "Quarter final"
         },
         "mixed": {
@@ -266,6 +272,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
+          "partner": "Artur Kunert",
           "notes": "Round of 16"
         },
         "mixed": {
@@ -354,6 +361,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
+          "partner": "Benedikt Thilo Döring",
           "notes": "Round 2"
         },
         "mixed": {
@@ -447,6 +455,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
+          "partner": "Ole Beer",
           "notes": "9th/16th place"
         },
         "mixed": null
@@ -507,6 +516,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
+          "partner": "Jaivigna Bollampalli",
           "notes": "3rd/4th place"
         },
         "mixed": null
@@ -525,6 +535,7 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U11",
+          "partner": "Vineeth Chandramohan",
           "notes": "3rd/4th place"
         },
         "mixed": null
@@ -728,6 +739,7 @@
         "doubles": {
           "place": 1,
           "category": "Boys Doubles U11",
+          "partner": "Leo Baumann",
           "notes": "Gold Medal"
         },
         "mixed": null
