@@ -9,10 +9,15 @@
         "doubles": {
           "place": null,
           "category": "Boys Doubles U13",
-          "partner": "Jaivigna Bollampalli",
-          "notes": "Round of 32"
+          "partner": "Agastya Sharma Bose",
+          "notes": "Round of 16"
         },
-        "mixed": null
+        "mixed": {
+          "place": 3,
+          "category": "Mixed U13",
+          "partner": "Marie Ullmann",
+          "notes": "Semi final"
+        }
       }
     },
     {
