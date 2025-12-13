@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const PLAYER_ID = '6388186';
-const RANKING_ID = '49291';
+const BASE_RANKING_ID = '49291';
 const AGE_CLASS = '13'; // U13
 
 const CATEGORIES = {
@@ -19,6 +19,8 @@ const CATEGORIES = {
 
 const BASE_URL = 'https://www.turnier.de';
 const COOKIE_FILE = join(tmpdir(), 'turnier-cookies.txt');
+
+let RANKING_ID = BASE_RANKING_ID;
 
 function curlFetch(url, options = {}) {
   const { method = 'GET', data } = options;
@@ -64,6 +66,17 @@ function acceptCookies() {
   });
 }
 
+function fetchLatestRankingId() {
+  const url = `${BASE_URL}/ranking/category.aspx?id=${BASE_RANKING_ID}&category=3367&C3367CS=${AGE_CLASS}`;
+  const html = curlFetch(url);
+
+  const match = html.match(/<option value="(\d+)">[\d]+-\d+<\/option>/);
+  if (match) {
+    RANKING_ID = match[1];
+    console.log(`Using latest ranking week: ${RANKING_ID}`);
+  }
+}
+
 function fetchCategoryRanking(categoryName) {
   const category = CATEGORIES[categoryName];
   const url = `${BASE_URL}/ranking/category.aspx?id=${RANKING_ID}&category=${category.id}&${category.filterParam}=${AGE_CLASS}`;
@@ -89,6 +102,7 @@ function extractPlayerRank(html, playerId) {
 
 function fetchAllRankings() {
   acceptCookies();
+  fetchLatestRankingId();
 
   console.log('Fetching rankings...');
   const rankings = {};
