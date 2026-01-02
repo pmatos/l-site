@@ -9,7 +9,7 @@ const __dirname = dirname(__filename);
 
 const PLAYER_ID = '6388186';
 const BASE_RANKING_ID = '49291';
-const AGE_CLASS = '13'; // U13
+const AGE_CLASS = '15'; // U15
 
 const CATEGORIES = {
   singles: { id: '3367', filterParam: 'C3367CS' },
@@ -79,7 +79,7 @@ function fetchLatestRankingId() {
 
 function fetchCategoryRanking(categoryName) {
   const category = CATEGORIES[categoryName];
-  const url = `${BASE_URL}/ranking/category.aspx?id=${RANKING_ID}&category=${category.id}&${category.filterParam}=${AGE_CLASS}`;
+  const url = `${BASE_URL}/ranking/category.aspx?id=${RANKING_ID}&category=${category.id}&${category.filterParam}=${AGE_CLASS}&ps=100`;
 
   const html = curlFetch(url);
   return extractPlayerRank(html, PLAYER_ID);
